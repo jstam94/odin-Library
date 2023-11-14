@@ -1,7 +1,5 @@
 const myLibrary = [];
 
-
-
 function Book(author, title, pages, genre, read){
     this.title = title,
     this.author = author,
@@ -23,9 +21,22 @@ defaultThree.addBookToLibary();
 
 
 let library = document.querySelector('.library');
+
+function renderLibrary(){
     myLibrary.forEach(Book => {
         let newDiv = document.createElement('div');
-        newDiv.className = 'book'
+        newDiv.className = 'book';
         newDiv.textContent = `${Book.author} ${Book.title} ${Book.pages} ${Book.genre} ${Book.read} `;
         library.appendChild(newDiv);
     });
+}
+
+document.querySelector('button').addEventListener('click', () =>{
+    let title = document.querySelector('#title').value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector('#pages').value;
+    let genre = document.querySelector('#genre').value;
+    let read = document.querySelector('#read').checked;
+    let newBook = new Book(title, author, pages, genre, read);
+    newBook.addBookToLibary();
+})
