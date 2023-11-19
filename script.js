@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-function Book(author, title, pages, genre, read){
+function Book(title, author, pages, genre, read){
     this.title = title,
     this.author = author,
     this.pages = pages,
@@ -12,24 +12,20 @@ Book.prototype.addBookToLibary = function() {
     myLibrary.push(this)
 }
 
-let defaultOne = new Book('A Tale of Two Cities', 'Charles Dickens', 448, 'Historical Fiction', false);
+function addDefaultBooks()
+{
+    let defaultOne = new Book('A Tale of Two Cities', 'Charles Dickens', 448, 'Historical Fiction', false);
 let defaultTwo = new Book('To Kill a Mockingbird', 'Harper Lee', 281, 'Southern Gothic', true);
 let defaultThree = new Book('Death of a Salesman', 'Arthur Miller', 281, 'Drama', true);
 defaultOne.addBookToLibary();
 defaultTwo.addBookToLibary();
 defaultThree.addBookToLibary();
+}
+
 
 
 let library = document.querySelector('.library');
 
-function renderLibrary(){
-    myLibrary.forEach(Book => {
-        let newDiv = document.createElement('div');
-        newDiv.className = 'book';
-        newDiv.textContent = `${Book.author} ${Book.title} ${Book.pages} ${Book.genre} ${Book.read} `;
-        library.appendChild(newDiv);
-    });
-}
 
 document.querySelector('button').addEventListener('click', () =>{
     let title = document.querySelector('#title').value;
@@ -40,3 +36,47 @@ document.querySelector('button').addEventListener('click', () =>{
     let newBook = new Book(title, author, pages, genre, read);
     newBook.addBookToLibary();
 })
+
+
+
+
+    // myLibrary.forEach(book, () => {
+    //     let card = createElement(`div.card`);
+    //     for (field in book) {
+    //         let row = createElement('div.row');
+    //         let heading = createElement('div.heading');
+    //         heading.innerText = `${field}`;
+    //         let info = createElement('div.info');   
+    //         info.innertext = `${book.field}`;
+    //         row.appendChild(heading);
+    //         row.appendChild(info);
+    //         card.appendChild(row)
+    //         }
+    //         library.appendChild(card)
+    //     }
+    // });
+
+
+function renderLibrary() {
+    myLibrary.forEach(Book => {
+        let card = document.createElement('div.card')
+        for (key in Book) {
+            if (Book.hasOwnProperty(key)) {
+                let heading = document.createElement('h2');
+                heading.textContent = key;
+                let info = document.createElement('p');
+                info.textContent = Book[key];
+                let row = document.createElement('div.row')
+                row.appendChild(heading);
+                row.appendChild(info);
+                card.appendChild(row);
+            }
+        }
+        library.appendChild(card);
+    });
+    
+}
+
+
+
+addDefaultBooks()
