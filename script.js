@@ -24,7 +24,7 @@ function addDefaultBooks()
 
 let library = document.querySelector('.library');
 
-document.querySelector('button').addEventListener('click', () =>{
+document.querySelector('#submit-book').addEventListener('click', () =>{
     let title = document.querySelector('#title').value;
     let author = document.querySelector('#author').value;
     let pages = document.querySelector('#pages').value;
