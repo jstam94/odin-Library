@@ -15,17 +15,14 @@ Book.prototype.addBookToLibary = function() {
 function addDefaultBooks()
 {
     let defaultOne = new Book('A Tale of Two Cities', 'Charles Dickens', 448, 'Historical Fiction', false);
-let defaultTwo = new Book('To Kill a Mockingbird', 'Harper Lee', 281, 'Southern Gothic', true);
-let defaultThree = new Book('Death of a Salesman', 'Arthur Miller', 281, 'Drama', true);
-defaultOne.addBookToLibary();
-defaultTwo.addBookToLibary();
-defaultThree.addBookToLibary();
+    let defaultTwo = new Book('To Kill a Mockingbird', 'Harper Lee', 281, 'Southern Gothic', true);
+    let defaultThree = new Book('Death of a Salesman', 'Arthur Miller', 281, 'Drama', true);
+    defaultOne.addBookToLibary();
+    defaultTwo.addBookToLibary();
+    defaultThree.addBookToLibary();
 }
 
-
-
 let library = document.querySelector('.library');
-
 
 document.querySelector('button').addEventListener('click', () =>{
     let title = document.querySelector('#title').value;
@@ -36,26 +33,6 @@ document.querySelector('button').addEventListener('click', () =>{
     let newBook = new Book(title, author, pages, genre, read);
     newBook.addBookToLibary();
 })
-
-
-
-
-    // myLibrary.forEach(book, () => {
-    //     let card = createElement(`div.card`);
-    //     for (field in book) {
-    //         let row = createElement('div.row');
-    //         let heading = createElement('div.heading');
-    //         heading.innerText = `${field}`;
-    //         let info = createElement('div.info');   
-    //         info.innertext = `${book.field}`;
-    //         row.appendChild(heading);
-    //         row.appendChild(info);
-    //         card.appendChild(row)
-    //         }
-    //         library.appendChild(card)
-    //     }
-    // });
-
 
 function renderLibrary() {
     myLibrary.forEach(Book => {
@@ -80,3 +57,9 @@ function renderLibrary() {
 
 
 addDefaultBooks()
+
+let openFormButton = document.querySelector('#open-form');
+openFormButton.addEventListener('click', ()=> {
+let form = document.querySelector('dialog');
+form.setAttribute('open', '');
+})
