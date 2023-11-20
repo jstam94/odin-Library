@@ -36,14 +36,16 @@ document.querySelector('button').addEventListener('click', () =>{
 
 function renderLibrary() {
     myLibrary.forEach(Book => {
-        let card = document.createElement('div.card')
+        let card = document.createElement('div')
+        card.className = 'card'
         for (key in Book) {
             if (Book.hasOwnProperty(key)) {
                 let heading = document.createElement('h2');
                 heading.textContent = key;
                 let info = document.createElement('p');
                 info.textContent = Book[key];
-                let row = document.createElement('div.row')
+                let row = document.createElement('div')
+                row.className = 'row'
                 row.appendChild(heading);
                 row.appendChild(info);
                 card.appendChild(row);
