@@ -1,3 +1,13 @@
 .card{
    border: 1px solid black;
 }
+
+
+body{
+   background: #cbd5e1;
+}
+
+
+.card{
+   background: #fed7aa;
+}
