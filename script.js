@@ -68,8 +68,11 @@ function renderLibrary() {
         let deleteButton = document.createElement('button');
         deleteButton.innerText = 'Remove Book'
         deleteButton.setAttribute('type', 'button');
+        currentIndex = card.getAttribute('data-index');
         deleteButton.addEventListener('click', ()=>{
-            console.log('IM A DELETE BUTTON')
+            console.log(`WE ARE REMOVING ${myLibrary[card.getAttribute('data-index')].title}`)
+            myLibrary.splice(card.getAttribute('data-index'), 1)
+            renderLibrary()
         })
         card.appendChild(deleteButton)
         library.appendChild(card);
@@ -87,6 +90,4 @@ form.setAttribute('open', '');
 addDefaultBooks();
 renderLibrary();
 
-function removeBook(index){
-    delete myLibrary[index]
-}
+
