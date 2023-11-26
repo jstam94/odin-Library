@@ -49,6 +49,7 @@ function renderLibrary() {
     myLibrary.forEach(Book => {
         let card = document.createElement('div')
         card.className = 'card'
+        card.setAttribute('data-index',myLibrary.findIndex((element) => element.title == Book.title))
         for (key in Book) {
             if (Book.hasOwnProperty(key)) {
                 let heading = document.createElement('h2');
@@ -67,12 +68,14 @@ function renderLibrary() {
     
 }
 
-
-
-addDefaultBooks()
-
 let openFormButton = document.querySelector('#open-form');
 openFormButton.addEventListener('click', ()=> {
 let form = document.querySelector('dialog');
 form.setAttribute('open', '');
 })
+
+
+addDefaultBooks();
+renderLibrary();
+
+
