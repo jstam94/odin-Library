@@ -14,7 +14,7 @@ Book.prototype.addBookToLibary = function() {
 
 Book.prototype.toggleRead = function() {
     this.read ? this.read = false : this.read = true;
-    renderLibrary()
+    renderLibrary();
 }
 
 function addDefaultBooks()
