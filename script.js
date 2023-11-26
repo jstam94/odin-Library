@@ -12,6 +12,11 @@ Book.prototype.addBookToLibary = function() {
     myLibrary.push(this)
 }
 
+Book.prototype.toggleRead = function() {
+    this.read ? this.read = false : this.read = true;
+    renderLibrary()
+}
+
 function addDefaultBooks()
 {
     let defaultOne = new Book('A Tale of Two Cities', 'Charles Dickens', 448, 'Historical Fiction', false);
@@ -70,7 +75,6 @@ function renderLibrary() {
         deleteButton.setAttribute('type', 'button');
         currentIndex = card.getAttribute('data-index');
         deleteButton.addEventListener('click', ()=>{
-            console.log(`WE ARE REMOVING ${myLibrary[card.getAttribute('data-index')].title}`)
             myLibrary.splice(card.getAttribute('data-index'), 1)
             renderLibrary()
         })
