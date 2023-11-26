@@ -63,6 +63,10 @@ function renderLibrary() {
                 card.appendChild(row);
             }
         }
+        let deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Remove Book'
+        deleteButton.setAttribute('type', 'button');
+        card.appendChild(deleteButton)
         library.appendChild(card);
     });
     
