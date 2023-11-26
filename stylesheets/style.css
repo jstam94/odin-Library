@@ -1,13 +1,9 @@
-.card{
-   border: 1px solid black;
-}
-
-
 body{
    background: #cbd5e1;
+   font-family: 'Roboto', sans-serif;
 }
 
-
 .card{
+   border: 1px solid black;
    background: #fed7aa;
 }
