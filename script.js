@@ -43,9 +43,11 @@ document.querySelector('#submit-book').addEventListener('click', () =>{
     newBook.addBookToLibary();
     clearForm();
     document.querySelector('dialog').close();
+    renderLibrary();
 })
 
 function renderLibrary() {
+    library.innerHTML = '';
     myLibrary.forEach(Book => {
         let card = document.createElement('div')
         card.className = 'card'
@@ -66,6 +68,9 @@ function renderLibrary() {
         let deleteButton = document.createElement('button');
         deleteButton.innerText = 'Remove Book'
         deleteButton.setAttribute('type', 'button');
+        deleteButton.addEventListener('click', ()=>{
+            console.log('IM A DELETE BUTTON')
+        })
         card.appendChild(deleteButton)
         library.appendChild(card);
     });
@@ -82,4 +87,6 @@ form.setAttribute('open', '');
 addDefaultBooks();
 renderLibrary();
 
-
+function removeBook(index){
+    delete myLibrary[index]
+}
