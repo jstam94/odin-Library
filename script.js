@@ -24,6 +24,15 @@ function addDefaultBooks()
 
 let library = document.querySelector('.library');
 
+function clearForm(){
+    document.querySelector('#title').value = null;
+    document.querySelector('#author').value = null;
+    document.querySelector('#pages').value = null;
+    document.querySelector('#genre').value = null;
+    document.querySelector('#read').checked = false;
+
+}
+
 document.querySelector('#submit-book').addEventListener('click', () =>{
     let title = document.querySelector('#title').value;
     let author = document.querySelector('#author').value;
@@ -32,6 +41,8 @@ document.querySelector('#submit-book').addEventListener('click', () =>{
     let read = document.querySelector('#read').checked;
     let newBook = new Book(title, author, pages, genre, read);
     newBook.addBookToLibary();
+    clearForm();
+    document.querySelector('dialog').close();
 })
 
 function renderLibrary() {
