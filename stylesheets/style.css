@@ -6,6 +6,9 @@ body{
 .card{
    border: 1px solid black;
    background: #fed7aa;
+   padding: 10px;
+   margin-bottom: 10px;
+   width: 300px;
 }
 
 .card p{
@@ -15,4 +18,22 @@ body{
    text-transform: uppercase;
    font-style: italic;
    color: #64748b;
+}
+
+.card button{
+   background: #fca5a5;
+   color: white;
+   font-weight: bold;
+   border: none;
+   padding: 10px;
+   margin-right: 10px;
+   border-radius: 10px;
+}
+
+.row{
+   margin-bottom: 10px;
+}
+
+header{
+   margin-bottom: 10px;
 }
