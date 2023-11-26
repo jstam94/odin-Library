@@ -79,6 +79,13 @@ function renderLibrary() {
             renderLibrary()
         })
         card.appendChild(deleteButton)
+        let toggleRead = document.createElement('button');
+        toggleRead.innerText ='Toggle Read Status';
+        toggleRead.setAttribute('type', 'button');
+        toggleRead.addEventListener('click', ()=>{
+            myLibrary[card.getAttribute('data-index')].toggleRead();
+        })
+        card.appendChild(toggleRead);
         library.appendChild(card);
     });
     
