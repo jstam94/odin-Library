@@ -1,21 +1,32 @@
 const myLibrary = [];
 
-function Book(title, author, pages, genre, read){
-    this.title = title,
+class Book{
+
+    constructor(title, author, pages, genre, read)
+    {this.title = title,
     this.author = author,
     this.pages = pages,
     this.genre = genre,
-    this.read = read
+    this.read = read}
+
+    addBookToLibary(){
+        myLibrary.push(this);
+    }
+
+    toggleRead(){
+        this.read ? this.read = false : this.read = true;
+        renderLibrary();
+    }
 }
 
-Book.prototype.addBookToLibary = function() {
-    myLibrary.push(this)
-}
+// Book.prototype.addBookToLibary = function() {
+//     myLibrary.push(this)
+// }
 
-Book.prototype.toggleRead = function() {
-    this.read ? this.read = false : this.read = true;
-    renderLibrary();
-}
+// Book.prototype.toggleRead = function() {
+//     this.read ? this.read = false : this.read = true;
+//     renderLibrary();
+// }
 
 function addDefaultBooks()
 {
